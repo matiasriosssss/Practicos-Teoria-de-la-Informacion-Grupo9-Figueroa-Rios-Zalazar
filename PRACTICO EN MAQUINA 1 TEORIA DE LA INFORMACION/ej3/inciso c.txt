@@ -1,0 +1,30 @@
+Un archivo comprimido (como .zip o .rar) tiene una entropía empírica cercana a 8 bits/símbolo porque el algoritmo de compresión elimina la redundancia presente en los datos originales.
+
+¿Qué hace un compresor?
+En un archivo de texto plano, los bytes no se distribuyen de forma uniforme: hay letras muy frecuentes (como e, a, espacio) y muchas que no aparecen nunca (solo usamos ~40 de los 256 valores posibles). Además existen patrones repetitivos y correlaciones entre bytes consecutivos. Todo esto constituye redundancia: información predecible que no aporta "sorpresa".
+
+Un algoritmo de compresión explota esta redundancia para representar los mismos datos con menos bits. Al hacerlo, el resultado es una secuencia de bytes donde:
+
+Los 256 valores posibles aparecen con frecuencias similares (distribución cuasi-uniforme).
+No quedan patrones explotables ni correlaciones estadísticas evidentes.
+¿Por qué la entropía se acerca a 8 bits/símbolo?
+La entropía máxima para un alfabeto de 256 símbolos es:
+
+H max = log2 (256) = 8 bits/simbolo
+
+Y se alcanza cuando todos los símbolos son equiprobables (pi = 1/256). Un archivo comprimido se aproxima a esta condición porque el compresor ya eliminó toda la estructura y regularidad de los datos. Cada byte del archivo comprimido es casi tan "impredecible" como cualquier otro, lo que maximiza la entropía.
+
+Relación con la redundancia
+La redundancia se define como:
+
+R = Hmax − H
+​
+Esto se verificó en la práctica con los archivos de prueba:
+
+			ejemplo.txt		ejemplo.zip
+H (entropía)		4.278 bits/símbolo	7.997 bits/símbolo
+R (redundancia)		3.722 bits/símbolo	0.003 bits/símbolo
+
+El texto plano tiene alta redundancia (~46%) porque su distribución de bytes es muy desigual. El archivo comprimido tiene redundancia casi nula (~0.04%) porque el compresor ya la eliminó.
+
+Esto es coherente con el Teorema de Codificación de Fuente de Shannon: una codificación óptima produce una longitud promedio de código cercana a la entropía de la fuente. Por eso un archivo ya comprimido no puede volver a comprimirse de forma significativa: su entropía ya es cercana al máximo y no queda redundancia que explotar.

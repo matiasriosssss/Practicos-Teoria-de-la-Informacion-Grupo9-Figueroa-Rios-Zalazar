@@ -1,0 +1,26 @@
+    
+Archivo BMP (histograma con picos):
+    El formato BMP almacena los píxeles sin compresión. En una fotografía
+    natural, los píxeles vecinos tienden a tener valores similares (redundancia
+    espacial), lo que provoca que ciertos valores de byte aparezcan con mucha
+    más frecuencia que otros, generando picos pronunciados en el histograma.
+    Esto produce una distribución NO uniforme y, por lo tanto, una entropía
+    menor que el máximo teórico. La fuente tiene alta redundancia y es
+    predecible: se podría comprimir significativamente.
+
+Archivo JPG (histograma más uniforme):
+    El formato JPEG aplica compresión con pérdida (DCT + cuantización +
+    codificación de Huffman/aritmética). El proceso de compresión elimina
+    la redundancia espacial y estadística, transformando los datos en una
+    secuencia de bytes que se asemeja a una fuente de máxima entropía.
+    El histograma resultante es mucho más uniforme y la entropía se acerca
+    al límite teórico de 8 bits/símbolo, indicando que hay muy poca
+    redundancia remanente: los bytes del archivo comprimido son casi
+    impredecibles, comportándose como una fuente casi aleatoria.
+Conclusión:
+    La diferencia de entropía demuestra que la compresión JPEG es efectiva
+    al eliminar la redundancia inherente en la imagen. Un archivo con
+    entropía cercana al máximo no puede comprimirse más sin pérdida
+    (según el Teorema de Codificación de Fuente de Shannon).
+
+Esto luego se agrego al programa
