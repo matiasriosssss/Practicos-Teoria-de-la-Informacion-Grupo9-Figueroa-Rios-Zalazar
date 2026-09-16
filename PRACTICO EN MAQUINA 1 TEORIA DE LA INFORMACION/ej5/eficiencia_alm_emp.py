@@ -4,7 +4,7 @@ Figueroa - Rios - Zalazar
 Esta aplicación de Python genera y gestiona datos de personas simuladas, 
 demostrando las diferencias clave entre almacenar información en formatos 
 de texto de longitud variable y formatos binarios de longitud fija empleando 
-técnicas de **empaquetado a nivel de bits (Bitwise)**."""
+técnicas de *empaquetado a nivel de bits (Bitwise)*."""
 import json            
 import struct
 import os
