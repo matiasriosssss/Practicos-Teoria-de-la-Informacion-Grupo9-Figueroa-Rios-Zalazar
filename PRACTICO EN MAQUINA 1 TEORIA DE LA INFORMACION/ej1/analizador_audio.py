@@ -2,7 +2,7 @@
 Análisis de Información en Señales de Audio (Formato WAV)
 Figueroa - Rios - Zalazar
 Este programa analiza la distribución estadística de la
-información y la estructura interna de archivos de audio crudos y comprimidos """
+información y la estructura interna de archivos de audio crudos y comprimidos."""
 import os
 import struct
 import math
