@@ -2,8 +2,8 @@
 Medición de Distancia entre Cadenas:
 Figueroa - Rios - Zalazar
 Esta aplicación de Python permite comparar dos cadenas de texto y evaluar su grado de similitud algorítmica
-a través de distintas metodologías, específicamente la **Distancia de Hamming** y la **Distancia de 
-Levenshtein (Distancia de Edición)**."""
+a través de distintas metodologías, específicamente la *Distancia de Hamming* y la *Distancia de 
+Levenshtein (Distancia de Edición)*."""
 import unicodedata
 
 def distancia_hamming(str1, str2):
